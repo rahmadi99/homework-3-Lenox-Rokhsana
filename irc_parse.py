@@ -40,7 +40,7 @@ def get_hours_minutes(time_row):
 
    
 #R.A
-#get back to this later...NOT COMPLETED
+#(NOT COMPLETED) save this for last
 def get_join_quit_type(row):
     """Returns if a row is a join or a quit,
     Args:
