@@ -9,18 +9,15 @@ import re
   """
 
 def sanity_check():
-    """This test should always pass.
-    The purpose is to make sure Github actions are functioning properly.
-    """
+
     return True
 
 
 
-
 def get_chat_message(row):
-    pass
-
-
+    
+    message = re.split(r'> ', row)
+    return "> ".join(message[1:])
 
 
 
@@ -38,16 +35,15 @@ def get_current_date(dateline):
 
 
 
-
 def get_hours_minutes(time_row):
-    """ covered in class 11-2 """
+
     hour_minute={}
     hour_minute['hour'] = 1
     return hour_minute
 
    
 
-
+#get back to this later
 def get_join_quit_type(row):
     """Returns if a row is a join or a quit,
     Args:
@@ -55,9 +51,8 @@ def get_join_quit_type(row):
     Returns:
         str: "join" or "quit"
     """
-    pass
-
-
+    joinQuit = re.search(r'join','quit','left', row)
+    return joinQuit
 
 
 
@@ -69,7 +64,8 @@ def get_join_quit_username(row):
     Returns:
         str: the username from the row.
     """
-    pass
+    joinQuitUser = re.search(r'(-!-)\s(.*) \[.*@', row)
+    return joinQuitUser.group(2)
 
 
 
@@ -86,7 +82,8 @@ def get_user_name(row):
     string
         string with username.
     """
-    pass
+    user_name = re.search(r'<.(.*?)>',row)
+    return user_name.group(1)
 
 
 
@@ -108,18 +105,6 @@ def get_user_prefix(row):
 
 
 def is_date_row(row):
-    """
-    Check if row indicates date change.
-    Row contains --- at the start
-    Parameters
-    ----------
-    row : str
-        row from the IRC chat log.
-    Returns
-    -------
-    bool
-        True if the row is date change, false otherwise.
-    """
     
     if re.search(r'---', row):
         return True
@@ -146,28 +131,16 @@ def is_join_quit(row):
 
 
 
-
-
 def is_message(row):
-    """
-    Determine if a row contains a message.
-    Parameters
-    ----------
-    row : str
-        row from chat log.
-    Returns
-    -------
-    bool
-        True if row belongs to chat log.
-    """
+
     if row[6] == '<':
         return True
     return False
 
 
 
-
 def find_urls(text):
-    pass
 
+   urls = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', str(text))
+   return urls
 
