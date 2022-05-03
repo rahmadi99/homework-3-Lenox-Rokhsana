@@ -5,13 +5,11 @@
 #%% imports 
 import re
 
-"""UNIT TESTS THAT NEED TO PASS..11 TOTAL
-  """
+
 
 def sanity_check():
 
     return True
-
 
 
 def get_chat_message(row):
@@ -29,7 +27,6 @@ def get_current_date(dateline):
     Returns:
         datetime: datetime object with the date from the row 
     """
-
     pass
 
 
@@ -43,7 +40,7 @@ def get_hours_minutes(time_row):
 
    
 
-#get back to this later
+#get back to this later...NOT COMPLETED
 def get_join_quit_type(row):
     """Returns if a row is a join or a quit,
     Args:
@@ -57,13 +54,7 @@ def get_join_quit_type(row):
 
 
 def get_join_quit_username(row):
-    """ Input a join/quit row, get a username back.
-    Args:
-        row (str): Must be a join/quit row. These
-        have `-!-` after the timestamp.
-    Returns:
-        str: the username from the row.
-    """
+
     joinQuitUser = re.search(r'(-!-)\s(.*) \[.*@', row)
     return joinQuitUser.group(2)
 
@@ -71,20 +62,9 @@ def get_join_quit_username(row):
 
 
 def get_user_name(row):
-    """
-    Find the username in a chat row.
-    Parameters
-    ----------
-    row : str
-        row that contains a message.
-    Returns
-    -------
-    string
-        string with username.
-    """
+ 
     user_name = re.search(r'<.(.*?)>',row)
     return user_name.group(1)
-
 
 
 
