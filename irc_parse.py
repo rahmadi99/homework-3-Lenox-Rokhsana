@@ -18,7 +18,7 @@ def get_chat_message(row):
     return "> ".join(message[1:])
 
 
-
+#R.A
 def get_current_date(dateline):
     """    Parse the IRC log date format to find the current date
     Return a POSIX (datetime) form date for midnight
@@ -39,7 +39,7 @@ def get_hours_minutes(time_row):
     return hour_minute
 
    
-
+#R.A
 #get back to this later...NOT COMPLETED
 def get_join_quit_type(row):
     """Returns if a row is a join or a quit,
@@ -68,7 +68,7 @@ def get_user_name(row):
 
 
 
-
+#R.A
 def get_user_prefix(row):
     """ Gets the prefix of a username, if any.
     If there is not a prefix, return None.
@@ -92,7 +92,7 @@ def is_date_row(row):
 
 
 
-
+#R.A
 def is_join_quit(row):
     """
     Check if message is a join/quit/metadata row.
